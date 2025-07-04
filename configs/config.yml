@@ -22,7 +22,7 @@ llms:
     model_name: meta/llama-4-maverick-17b-128e-instruct
     temperature: 0.3
     max_tokens: 1024
-    api_key: ${NVIDIA_API_KEY}
+    api_key: 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
     
   # Vision and multimodal analysis
   vision_llm:
@@ -30,7 +30,7 @@ llms:
     model_name: nvidia/vila
     temperature: 0.2
     max_tokens: 1024
-    api_key: ${NVIDIA_VISION_API_KEY}
+    api_key: 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
     
   # Voice output generation (TTS)
   voice_output_llm:
@@ -38,7 +38,7 @@ llms:
     model_name: nvidia/fastpitch-hifigan-tts
     temperature: 0.1
     max_tokens: 512
-    api_key: ${NVIDIA_TTS_API_KEY}
+    api_key: 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
     
   # Voice input processing (STT)
   user_voice_input_llm:
@@ -46,7 +46,7 @@ llms:
     model_name: nvidia/whisper-large-v3
     temperature: 0.0
     max_tokens: 1024
-    api_key: ${NVIDIA_STT_API_KEY}
+    api_key: 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
     
   # Topic control and conversation flow
   topic_control_llm:
@@ -54,16 +54,16 @@ llms:
     model_name: nvidia/llama-3.1-nemoguard-8b-topic-control
     temperature: 0.1
     max_tokens: 512
-    api_key: ${NVIDIA_GUARD_API_KEY}
+    api_key: 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
 
 embedders:
   # Embeddings for document retrieval and semantic search
   nim_embedder:
     _type: nim
     model_name: nvidia/nv-embedqa-e5-v5
-    api_key: ${NVIDIA_API_KEY}
+    api_key: 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
 
-# Main workflow configuration 
+# Main workflow configuration (changed from "workflows" to "workflow")
 workflow:
   _type: mentraai
   
