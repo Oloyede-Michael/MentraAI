@@ -34,11 +34,11 @@ export const ChatLoader: FC<Props> = ({ statusUpdateText = '' }) => {
     >
       <div className="relative m-auto flex p-4 text-base sm:w-[95%] md:w-[92%] lg:w-[93%] 2xl:w-[59%] md:gap-6 md:py-6 lg:px-0">
         <div className="min-w-[40px] items-end">
-          <BotAvatar src={'nvidia.jpg'} size={30} />
+          <BotAvatar src={'head_logo.jpg'} size={30} />
         </div>
         <div className="flex items-center">
           {/* Status Update Text with Green Blinking Caret */}
-          <span className="cursor-default">{currentMessage}<span className="text-[#76b900] animate-blink">▍</span></span>
+          <span className="cursor-default">{currentMessage}<span className="text-[#2563eb] animate-blink">▍</span></span>
         </div>
       </div>
     </div>

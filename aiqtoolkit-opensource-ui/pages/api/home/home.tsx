@@ -42,7 +42,7 @@ const Home = (props: any) => {
     initialState,
   });
 
-  let workflow =  'AIQ Toolkit';
+  let workflow =  'MENTRA';
 
   const {
     state: {
@@ -242,7 +242,7 @@ const Home = (props: any) => {
           name="viewport"
           content="height=device-height ,width=device-width, initial-scale=1, user-scalable=no"
         />
-        <link rel="icon" href="/nvidia.jpg" />
+        <link rel="icon" href="/head_logo.jpg" />
       </Head>
       {selectedConversation && (
         <main

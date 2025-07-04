@@ -5,7 +5,6 @@ import {
   IconEdit,
   IconPlayerPause,
   IconTrash,
-  IconUser,
   IconVolume2,
 } from '@tabler/icons-react';
 import { FC, memo, useContext, useEffect, useRef, useState } from 'react';
@@ -17,6 +16,7 @@ import { MemoizedReactMarkdown } from '../Markdown/MemoizedReactMarkdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import { BotAvatar } from '@/components/Avatar/BotAvatar';
+import { UserAvatar } from '@/components/Avatar/UserAvatar';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import { getReactMarkDownCustomComponents } from '../Markdown/CustomComponents';
@@ -200,9 +200,9 @@ export const ChatMessage: FC<Props> = memo(({ message, messageIndex, onEdit}) =>
       <div className="relative m-auto flex text-base sm:w-[95%] 2xl:w-[60%] md:gap-6 sm:p-2 md:py-6 lg:px-0">
         <div className="min-w-[40px] text-right font-bold">
           {message.role === 'assistant' ? (
-            <BotAvatar src={'nvidia.jpg'} />
+            <BotAvatar src={'head_logo.jpg'} />
           ) : (
-            <IconUser size={30} />
+            <UserAvatar src={'avatar-default.svg'} />
           )}
         </div>
 
@@ -231,7 +231,7 @@ export const ChatMessage: FC<Props> = memo(({ message, messageIndex, onEdit}) =>
 
                   <div className="mt-10 flex justify-center space-x-4">
                     <button
-                      className="h-[40px] rounded-md border border-neutral-300 px-4 py-1 text-sm font-medium text-neutral-700 enabled:hover:bg-[#76b900] disabled:opacity-50"
+                      className="h-[40px] rounded-md border border-neutral-300 px-4 py-1 text-sm font-medium text-neutral-700 enabled:hover:bg-[#2563eb] disabled:opacity-50"
                       onClick={handleEditMessage}
                       disabled={messageContent.trim().length <= 0}
                     >
@@ -281,7 +281,8 @@ export const ChatMessage: FC<Props> = memo(({ message, messageIndex, onEdit}) =>
             </div>
           ) : (
             <div className="flex flex-col w-[90%]">
-              <div className="flex flex-col gap-2">    
+              <div className="flex flex-col gap-2">  
+                  
                 {/* for intermediate steps content  */}
                 <div className="overflow-x-auto">
                   <MemoizedReactMarkdown
@@ -299,6 +300,7 @@ export const ChatMessage: FC<Props> = memo(({ message, messageIndex, onEdit}) =>
                     {prepareContent({ message, role: 'assistant', intermediateStepsContent: true, responseContent: false })}
                   </MemoizedReactMarkdown>
                 </div>
+
                 {/* for response content */}
                 <div className="overflow-x-auto">
                   <MemoizedReactMarkdown
@@ -323,11 +325,11 @@ export const ChatMessage: FC<Props> = memo(({ message, messageIndex, onEdit}) =>
                       {messagedCopied ? 
                         <IconCheck
                           size={20}
-                          className="text-[#76b900] dark:text-[#76b900]"
+                          className="text-[#2563eb] dark:text-[#2563eb]"
                           id={message?.id}
                         /> : 
                         <button
-                          className="text-[#76b900] hover:text-gray-700 dark:text-[#76b900] dark:hover:round-gray-300"
+                          className="text-[#2563eb] hover:text-gray-700 dark:text-[#2563eb] dark:hover:round-gray-300"
                           onClick={copyOnClick}
                           title="Copy to clipboard"
                           id={message?.id}
@@ -336,7 +338,7 @@ export const ChatMessage: FC<Props> = memo(({ message, messageIndex, onEdit}) =>
                         </button>
                       }
                       <button
-                        className="text-[#76b900] hover:text-gray-700 dark:text-[#76b900] dark:hover:text-gray-300"
+                        className="text-[#2563eb] hover:text-gray-700 dark:text-[#2563eb] dark:hover:text-gray-300"
                         onClick={handleTextToSpeech}
                         aria-label={isPlaying ? "Stop speaking" : "Start speaking"}
                       >

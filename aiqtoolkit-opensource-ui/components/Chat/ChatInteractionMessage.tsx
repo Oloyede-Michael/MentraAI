@@ -48,7 +48,7 @@ export const InteractionModal = ({ isOpen, interactionMessage, onClose, onSubmit
      <div
         className={`flex gap-2 items-center justify-evenly bg-white text-slate-800 dark:bg-slate-800 dark:text-slate-100 px-4 py-2 rounded-lg shadow-md ${t.visible ? 'animate-fade-in' : 'animate-fade-out'}`}
       >
-        <IconInfoCircle size={16} className="text-[#76b900]" />
+        <IconInfoCircle size={16} className="text-[#2563eb]" />
         <span>{content?.text || 'No content found for this notification'}</span>
         <button
           onClick={() => toast.dismiss(t.id)}
@@ -81,7 +81,7 @@ export const InteractionModal = ({ isOpen, interactionMessage, onClose, onSubmit
               <button className="px-4 py-2 bg-gray-500 rounded" onClick={onClose}>
                 Cancel
               </button>
-              <button className="px-4 py-2 bg-[#76b900] text-white rounded" onClick={handleTextSubmit}>
+              <button className="px-4 py-2 bg-[#2563eb] text-white rounded" onClick={handleTextSubmit}>
                 Submit
               </button>
             </div>
@@ -94,7 +94,7 @@ export const InteractionModal = ({ isOpen, interactionMessage, onClose, onSubmit
               {content.options.map((option) => (
                 <button
                   key={option.id}
-                  className={`px-4 py-2 ${option?.value?.includes('continue') ? 'bg-[#76b900]' : 'bg-slate-800'} text-white rounded`}
+                  className={`px-4 py-2 ${option?.value?.includes('continue') ? 'bg-[#2563eb]' : 'bg-slate-800'} text-white rounded`}
                   onClick={() => handleChoiceSubmit(option.value)}
                 >
                   {option.label}
@@ -116,7 +116,7 @@ export const InteractionModal = ({ isOpen, interactionMessage, onClose, onSubmit
                     value={option.value}
                     checked={userInput === option.value}
                     onChange={() => setUserInput(option.value)}
-                    className="mr-2 text-[#76b900] focus:ring-[#76b900]"
+                    className="mr-2 text-[#2563eb] focus:ring-[#2563eb]"
                   />
                   <label htmlFor={option.id} className="flex flex-col">
                     <span className="text-slate-800 dark:text-white">{option.label}</span>
@@ -135,7 +135,7 @@ export const InteractionModal = ({ isOpen, interactionMessage, onClose, onSubmit
                 Cancel
               </button>
               <button 
-                className="px-4 py-2 bg-[#76b900] text-white rounded" 
+                className="px-4 py-2 bg-[#2563eb] text-white rounded" 
                 onClick={handleRadioSubmit}
               >
                 Submit

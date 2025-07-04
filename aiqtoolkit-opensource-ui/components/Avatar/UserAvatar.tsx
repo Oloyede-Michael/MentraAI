@@ -1,27 +1,22 @@
 import React from 'react';
 import { getInitials } from '@/utils/app/helper';
 
-export const UserAvatar = ({src = '', height = 30, width = 30}) =>  {
-    const profilePicUrl = src || ``
-
+export const UserAvatar = ({ src = '', height = 30, width = 30 }) => {
     const onError = (event: { target: { src: string; }; }) => {
-        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
-            <rect width="100%" height="100%" fill="#fff"/>
-            <text x="50%" y="50%" alignment-baseline="middle" text-anchor="middle" fill="#333" font-size="16" font-family="Arial, sans-serif">
-                user
-            </text>
-        </svg>`;
-        event.target.src = `data:image/svg+xml;base64,${window.btoa(svg)}`;
+        if (!event.target.src.includes('/avatar-default.png')) {
+            event.target.src = '/avatar-default.png';
+        }
     };
 
-    return <img 
-        src={profilePicUrl} 
-        alt={'user-avatar'}
-        width={width}
-        height={height}
-        title={'user-avatar'}
-        className='rounded-full max-w-full h-auto border border-[#76b900]'
-        onError={onError}
-    />
-
-}
+    return (
+        <img 
+            src={src || '/avatar-default.png'} 
+            alt="user-avatar" 
+            width={width}
+            height={height}
+            title="user-avatar"
+            className="rounded-full max-w-full h-auto border"
+            onError={onError}
+        />
+    );
+};

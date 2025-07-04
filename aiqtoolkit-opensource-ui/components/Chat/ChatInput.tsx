@@ -403,7 +403,7 @@ export const ChatInput = ({
               maxHeight: '400px',
               overflow: `${textareaRef.current && textareaRef.current.scrollHeight > 400 ? 'auto' : 'hidden'}`,
             }}
-            placeholder={isRecording ? 'Listening...' : `Unlock ${workflow} knowledge and expertise`}
+            placeholder={isRecording ? 'Listening...' : `Talk it out with ${workflow}`}
             value={content}
             rows={1}
             onCompositionStart={() => setIsTyping(true)}
@@ -436,7 +436,7 @@ export const ChatInput = ({
             appConfig?.fileUploadEnabled && !inputFile &&
             <>
               <button
-                className="absolute right-10 top-2 rounded-sm p-1 text-neutral-800 opacity-60 hover:text-[#76b900] dark:bg-opacity-50 dark:text-neutral-100 dark:hover:text-neutral-200"
+                className="absolute right-10 top-2 rounded-sm p-1 text-neutral-800 opacity-60 hover:text-[#2563eb] dark:bg-opacity-50 dark:text-neutral-100 dark:hover:text-neutral-200"
                 onClick={triggerFileUpload}
               >
                 {messageIsStreaming ? (
@@ -459,7 +459,7 @@ export const ChatInput = ({
             onClick={handleSpeechToText}
             className={`absolute left-2 top-2 rounded-sm p-[5px] text-neutral-800 opacity-60 dark:bg-opacity-50 dark:text-neutral-100 ${messageIsStreaming
               ? 'text-neutral-400' // Disable hover and change color when streaming
-              : 'hover:text-[#76b900] dark:hover:text-neutral-200' // Normal hover effect
+              : 'hover:text-[#2563eb] dark:hover:text-neutral-200' // Normal hover effect
               }`}
             disabled={messageIsStreaming}
           >

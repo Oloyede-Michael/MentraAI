@@ -72,7 +72,7 @@ export const CustomDetails = ({ children, id, messageIndex, index}) => {
 
     return (
         <>
-            <details 
+            {/* <details 
                 id={id}
                 ref={detailsRef}
                 open={isOpen} 
@@ -98,7 +98,7 @@ export const CustomDetails = ({ children, id, messageIndex, index}) => {
                     </div>
                     </div>
                 )}
-            </span>
+            </span> */}
         </>
     );
 };

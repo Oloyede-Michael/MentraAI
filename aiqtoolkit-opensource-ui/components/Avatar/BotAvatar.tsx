@@ -4,7 +4,7 @@ export const BotAvatar = ({height = 30, width = 30, src= ''}) =>  {
 
     const onError = (event: { target: { src: string; }; }) => {
         console.error('error loading bot avatar');
-        event.target.src = `nvidia.jpg`;
+        event.target.src = `head_logo.jpg`;
     };
 
     return <img 
