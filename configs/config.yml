@@ -1,1 +1,93 @@
-/home/nagini/agentiq/examples/mentraai/src/mentraai/configs/config.yml
+general:
+  use_uvloop: true
+  logging:
+    console:
+      _type: console
+      level: INFO
+
+  front_end:
+    _type: fastapi
+    host: "0.0.0.0"
+    port: 8000
+
+# Functions configuration (matching noteconfig.yaml structure)
+functions:
+  current_datetime:
+    _type: current_datetime
+
+llms:
+  # Primary reasoning and empathy model
+  empathy_reasoning_llm:
+    _type: nim
+    model_name: meta/llama-4-maverick-17b-128e-instruct
+    temperature: 0.3
+    max_tokens: 1024
+    api_key: ${NVIDIA_API_KEY}
+    
+  # Vision and multimodal analysis
+  vision_llm:
+    _type: nim
+    model_name: nvidia/vila
+    temperature: 0.2
+    max_tokens: 1024
+    api_key: ${NVIDIA_VISION_API_KEY}
+    
+  # Voice output generation (TTS)
+  voice_output_llm:
+    _type: nim
+    model_name: nvidia/fastpitch-hifigan-tts
+    temperature: 0.1
+    max_tokens: 512
+    api_key: ${NVIDIA_TTS_API_KEY}
+    
+  # Voice input processing (STT)
+  user_voice_input_llm:
+    _type: nim
+    model_name: nvidia/whisper-large-v3
+    temperature: 0.0
+    max_tokens: 1024
+    api_key: ${NVIDIA_STT_API_KEY}
+    
+  # Topic control and conversation flow
+  topic_control_llm:
+    _type: nim
+    model_name: nvidia/llama-3.1-nemoguard-8b-topic-control
+    temperature: 0.1
+    max_tokens: 512
+    api_key: ${NVIDIA_GUARD_API_KEY}
+
+embedders:
+  # Embeddings for document retrieval and semantic search
+  nim_embedder:
+    _type: nim
+    model_name: nvidia/nv-embedqa-e5-v5
+    api_key: ${NVIDIA_API_KEY}
+
+# Main workflow configuration 
+workflow:
+  _type: mentraai
+  
+  # Tool names to use
+  tool_names:
+    - current_datetime
+  
+  # LLM assignments for different functions
+  empathy_reasoning_model: empathy_reasoning_llm
+  multi_modal_vision_model: vision_llm
+  user_voice_model: user_voice_input_llm
+  agent_voice_output_model: voice_output_llm
+  topic_control_model: topic_control_llm
+  
+  # Empathy-specific configuration
+  emotion_sensitivity: 0.8
+  empathy_level: "high"
+  response_style: "supportive"
+  max_history: 150
+  
+  # Document processing
+  # ingest_glob: "docs/**/*.{txt,md,pdf,docx}"
+  ingest_glob: "examples/mentraai/data/*.{jpg,jpeg,png,txt,md,pdf}"
+  description: "Empathic AI Assistant with multimodal support"
+  chunk_size: 1024
+  auto_analyze: true
+  embedder_name: nim_embedder
