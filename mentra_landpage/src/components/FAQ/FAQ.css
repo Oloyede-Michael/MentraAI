@@ -1,0 +1,104 @@
+/* FAQ section */
+.faq-container {
+  max-width: 1000px;
+  padding: 4em 6em;
+  
+}
+.FAQ{
+  background-color: rgb(255, 255, 255);
+  padding: 5em 0em 7em;
+}
+.faq-title {
+  color: black;
+  font-family: 'Black Future';
+  font-weight: bold;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.faq-list {
+  position: relative;
+  font-family: 'Titillium Regular';
+}
+
+/* Each FAQ item */
+.faq-item {
+  position: relative;
+  padding: 20px 0;
+}
+
+/* Gradient line above each item */
+.faq-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(to right, #c3dafe, #e9d8fd);
+}
+
+/* Gradient line below last item */
+.faq-item:last-child::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(to right, #c3dafe, #e9d8fd);
+}
+
+/* FAQ Question Button */
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  color: inherit;
+}
+
+/* Remove unwanted hover styles */
+.faq-question:focus,
+.faq-question:hover {
+  color: inherit !important;
+  background: none !important;
+  outline: none !important;
+  text-decoration: none !important;
+}
+
+/* Plus icon styling and rotation */
+.faq-icon {
+  font-size: 22px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.faq-icon.open {
+  transform: rotate(45deg);
+}
+
+/* FAQ answer container */
+.faq-answer {
+  font-family: 'Titillium Regular';
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  overflow: hidden;
+  padding-top: 10px;
+}
+
+@media (max-width:754px){
+.faq-container {
+  padding: 3em 1.5em;
+}
+.faq-title{
+  font-size: 45px;
+}
+}

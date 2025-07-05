@@ -1,0 +1,179 @@
+
+.Howitworks {
+  padding: 3em 6em;
+  background-color: rgb(255, 255, 255);
+}
+
+.How h1 {
+  font-size: 50px;
+  font-family: 'Black Future', sans-serif;
+}
+
+.How h2 {
+  font-family: 'Titillium Regular', sans-serif;
+  font-size: 18px;
+}
+
+.flexComponent {
+  padding: 3em 0em;
+  font-family: 'Titillium Regular', sans-serif;
+  display: flex;
+  width: 100%;
+  gap: 10em;
+  justify-content: space-between;
+  position: relative;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 40%;
+}
+
+.card {
+  padding: 1em;
+  border-radius: 20px;
+  background: #fff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card h1 {
+  font-size: 22px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  
+  color: black;
+}
+
+.card h2 {
+  font-size: 18px;
+  color: black;
+}
+
+.phone {
+  display: flex;
+  position: relative;
+  width: 300px;
+  height: 500px;
+  
+}
+
+.phone img {
+  position: absolute;
+  width: 250px;
+  height: 450px;
+  border-radius: 35px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transition: all 0.6s ease-in-out;
+  filter: brightness(0.6) blur(1px);
+  z-index: 1;
+  
+}
+
+.phone img:nth-child(1) {
+  top: 30px;
+  left: -20px;
+  transform: rotate(-25deg);
+}
+
+.phone img:nth-child(2) {
+  top: 15px;
+  left: 20px;
+  transform: rotate(-10deg);
+}
+
+.phone img:nth-child(3) {
+  top: 0;
+  left: 60px;
+  transform: rotate(15deg);
+}
+
+.phone img.active {
+  filter: brightness(1) blur(0);
+  transform: rotate(0deg) scale(1.05);
+  z-index: 10;
+}
+
+.card.active {
+   background: linear-gradient(to right, #c3dafe, #e9d8fd);
+          color: white;
+          transform: scale(1.02);
+          box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+        }
+
+        .card.active h2 {
+          opacity: 1;
+        }
+
+       
+
+
+        .phone-img.active {
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+          .flexComponent {
+            flex-direction: column;
+            gap: 2em;
+            align-items: center;
+          }
+          .Howitworks {
+          padding: 3em 1.5em;
+         }
+          .phone {
+            width: 200px;
+            height: 380px;
+          }
+
+          .phone-img {
+            width: 200px;
+            height: 380px;
+          }
+                    
+          .How h1 {
+            font-size: 45px;
+          }
+        .cards {
+          width: 100%;
+        }
+         .phone {
+          width: 250px;
+          height: 400px;
+          
+          transform: translateX(50%);
+          justify-content: center;
+          align-content: center;
+        }
+    
+        }
+
+        @media (max-width:531px) {
+            .phone {
+          width: 250px;
+          height: 400px;
+          transform: translateX(30%);
+          justify-content: center;
+          align-content: center;
+        }
+                
+        .phone img {
+          width: 200px;
+          height: 350px;
+        }
+        }
+         @media (max-width:375x) {
+            .phone {
+          transform: translateX(20%);
+        }
+                
+        
+        }
