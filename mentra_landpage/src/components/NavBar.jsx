@@ -69,7 +69,7 @@ const NavBar = () => {
     { label: "AboutUs", path: "/about", type: "link" },
     { label: "Contact", path: "/contact", type: "link" },
     { label: "Features", type: "text" },
-    { label: "Docs", type: "text" },
+    { label: "Resources", type: "text" },
   ];
 
   useEffect(() => {
@@ -107,13 +107,14 @@ const NavBar = () => {
         {/* Desktop Button */}
         <div className="hidden md:block">
           <Magnet padding={50} disabled={false} magnetStrength={5}>
-            <Link to="/dashboard">
+            <a href="http://localhost:3000" target="_blank" rel="noopener noreferrer">
               <button
-                className="bg-indigo-600 cursor-pointer text-[18px] titi text-white shadow-2xl hover:bg-indigo-800 transition " style={{padding:'1rem 2rem', borderRadius:'0% 20%'}}
+              className="bg-indigo-600 cursor-pointer text-[18px] titi text-white shadow-2xl hover:bg-indigo-800 transition"
+              style={{ padding: '1rem 2rem', borderRadius: '0% 20%' }}
               >
-                Launch App
+              Launch App
               </button>
-            </Link>
+            </a>
           </Magnet>
         </div>
 
