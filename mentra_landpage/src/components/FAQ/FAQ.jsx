@@ -2,29 +2,34 @@ import { useState } from "react";
 import "./FAQ.css";
 import { motion, AnimatePresence } from "framer-motion";
 
+
 const faqData = [
   {
-    question: "What is StampNet?",
-    answer: "StampNet is a decentralized timestamping platform that allows users to prove document existence at a specific time using blockchain technology.",
+    question: "What is MentraAI?",
+    answer:
+      "MentraAI is an emotionally intelligent chatbot designed to support your mental and emotional well-being. It uses AI to have empathetic conversations and offers personalized guidance based on how you feel.",
   },
   {
-    question: "How does blockchain-based timestamping work?",
-    answer: "When you upload a document, StampNet generates a cryptographic hash and stores it on the blockchain, ensuring an immutable record of its existence.",
+    question: "How does MentraAI know how I feel?",
+    answer:
+      "MentraAI uses natural language processing and emotion analysis to detect emotional cues from your words. It can recognize emotions like sadness, stress, happiness, anxiety, and more — and adapts its response accordingly.",
   },
   {
-    question: "Is my document stored on the blockchain?",
-    answer: "No, only the hash of your document is stored on the blockchain, ensuring privacy while proving authenticity.",
+    question: "Can I talk to MentraAI about anything?",
+    answer:
+      "Yes. MentraAI is built to listen without judgment. You can journal your thoughts, express emotions, or simply talk through your day. It’s a safe space for self-reflection and emotional clarity.",
   },
   {
-    question: "Can I verify a previously timestamped document?",
-    answer: "Yes, you can upload your document to StampNet, and it will check the hash against the blockchain records.",
+    question: "Is my data private?",
+    answer:
+      "Absolutely. MentraAI prioritizes user privacy. Your conversations are kept secure and never shared. It only uses your input to improve the interaction in the moment — not to store or analyze you long-term unless you allow it.",
   },
   {
-    question: "Is StampNet free to use?",
-    answer: "StampNet may have gas fees associated with blockchain transactions, but basic verification features could be free.",
+    question: "How is MentraAI different from other chatbots?",
+    answer:
+      "MentraAI focuses on empathy and emotional intelligence, not just task-completion. It’s designed to understand you emotionally and respond with context-aware compassion something most AI tools overlook.",
   },
 ];
-
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
 

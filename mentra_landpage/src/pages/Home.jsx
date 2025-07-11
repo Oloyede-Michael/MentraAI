@@ -1,7 +1,7 @@
 import React from "react";
 import { Canvas } from "@react-three/fiber";
 import Blob from '../components/Blob';
-import "../App.css"; // Optional: for styling
+import "../App.css";
 import NavBar from "../components/NavBar";
 import HeroSection from "../components/HeroSection";
 import HomeBody from "../components/HomeBody";
