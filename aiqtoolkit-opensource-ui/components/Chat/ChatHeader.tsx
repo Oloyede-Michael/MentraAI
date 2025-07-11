@@ -48,7 +48,7 @@ export const ChatHeader = ({ webSocketModeRef = {} }) => {
     }, []);
 
    return (
-    <div className={`top-0 z-10 flex justify-center items-center h-12 ${selectedConversation?.messages?.length === 0 ? 'bg-none' : 'bg-[#2563eb] sticky'}  py-2 px-4 text-sm text-white dark:border-none dark:bg-black dark:text-neutral-200`}>
+    <div className={`top-0 z-10 flex justify-center items-center h-12 ${selectedConversation?.messages?.length === 0 ? 'bg-none' : 'bg-[#2563eb] sticky'}  py-2 px-4 text-sm text-white dark:border-none dark:bg-slate-800 dark:text-neutral-200`}>
         {
             selectedConversation?.messages?.length > 0 ? 
             <div className={`absolute top-6 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}>

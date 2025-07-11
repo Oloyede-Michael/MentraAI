@@ -1,10 +1,10 @@
 import React from 'react';
 
-export const BotAvatar = ({height = 30, width = 30, src= ''}) =>  {
+export const BotAvatar = ({height = 40, width = 40, src= ''}) =>  {
 
     const onError = (event: { target: { src: string; }; }) => {
         console.error('error loading bot avatar');
-        event.target.src = `head_logo.jpg`;
+        event.target.src = `logo.png`;
     };
 
     return <img 

@@ -200,7 +200,7 @@ export const ChatMessage: FC<Props> = memo(({ message, messageIndex, onEdit}) =>
       <div className="relative m-auto flex text-base sm:w-[95%] 2xl:w-[60%] md:gap-6 sm:p-2 md:py-6 lg:px-0">
         <div className="min-w-[40px] text-right font-bold">
           {message.role === 'assistant' ? (
-            <BotAvatar src={'head_logo.jpg'} />
+            <BotAvatar src={'logo.png'} />
           ) : (
             <UserAvatar src={'avatar-default.svg'} />
           )}
