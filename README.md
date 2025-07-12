@@ -55,6 +55,46 @@ In addition to its core mental health support capabilities, MentraAI also integr
 
 ---
 
+## Advanced Configuration & Usage
+
+### Developer-Oriented Configuration
+
+The core chatbot is highly customizable via the `MentraaiFunctionConfig` class:
+
+- **Model Selection:** You can specify different models for empathy reasoning, vision analysis, voice input/output, and conversation flow.
+    - `empathy_reasoning_model`: Primary model for empathetic reasoning
+    - `multi_modal_vision_model`: Model for visual content analysis
+    - `user_voice_model`: Model for voice input processing
+    - `agent_voice_output_model`: Model for voice response generation
+    - `topic_control_model`: Model for conversation flow management
+- **Behavioral Parameters:**
+    - `max_history`: Maximum conversation history tokens (default: 100; range: 10–500)
+    - `emotion_sensitivity`: Emotion detection sensitivity (float 0.1–1.0, default: 0.7)
+    - `empathy_level`: "low", "medium", or "high" (default: "high")
+    - `response_style`: "supportive", "professional", "casual", or "therapeutic" (default: "supportive")
+    - `chunk_size`: Document chunk size for analysis (default: 1024; range: 256–4096)
+    - `auto_analyze`: Enable automatic content analysis (default: True)
+    - `embedder_name`: Reference to the embedder model for document ingestion
+    - `ingest_glob`: Glob pattern for ingesting document types (default: `**/*.{txt,md,pdf}`)
+    - `description`: Description of the assistant (default: "Empathic AI Assistant")
+- **Validation:** Custom validators ensure only allowed values for empathy level and response style.
+
+### Dataset Integration
+
+- **Dataset Management:** The backend integrates with health and mental health symptom datasets for improved empathy and diagnostic accuracy.
+- **Dataset-driven Responses:** Responses can be tailored using both conversational context and external knowledge sources.
+
+### Multi-Modal Support
+
+- **Text, Voice, and Image:** The architecture is ready for text, voice, and image input/output, with models selected per capability.
+- **Document Ingestion:** Customizable ingestion patterns for adding resources (see `ingest_glob`).
+
+### Component-Oriented API
+
+- **Entry Points:** Components are registered via the AIQ Toolkit framework (see `src/mentraai.egg-info/entry_points.txt`).
+
+---
+
 ## Setup
 
 ### Prerequisites
@@ -149,8 +189,23 @@ The chatbot is highly configurable. Key options include:
 - `response_style`: "supportive", "professional", "casual", "therapeutic"
 - `emotion_sensitivity`: Float (0.1–1.0)
 - `max_history`: Number of conversation history tokens to keep
+- `chunk_size`: Document chunk size for analysis (default: 1024)
+- `auto_analyze`: Enable/disable automatic content analysis
 
 Edit these settings in your initialization or configuration files.
+
+---
+
+## Security Policy
+
+Security is a priority for this project. If you discover a vulnerability or exposed secret:
+
+- **Do not disclose vulnerabilities or secrets publicly.**
+- **Contact the repository maintainer(s) privately** with details.
+- **Wait for a response** and cooperate as needed for remediation.
+- Patches will be documented in release notes, and reporters can be credited if desired.
+
+For full details, see `aiqtoolkit-opensource-ui/SECURITY.md`.
 
 ---
 
@@ -160,6 +215,8 @@ Edit these settings in your initialization or configuration files.
 2. Create a new branch: `git checkout -b my-feature`
 3. Make your changes and commit: `git commit -am 'Add new feature'`
 4. Push and open a Pull Request.
+
+See [`aiqtoolkit-opensource-ui/CONTRIBUTING.md`](aiqtoolkit-opensource-ui/CONTRIBUTING.md) for detailed contributing guidelines, code style, and PR requirements.
 
 ---
 
