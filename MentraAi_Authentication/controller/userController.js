@@ -147,6 +147,36 @@ exports.setNickname = async (req, res) => {
   }
 };
 
+// Complete registration (after email is verified)
+exports.completeRegistration = async (req, res) => {
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { email, firstName, nickname, password } = req.body;
+    const user = await User.findOne({ email: email.toLowerCase().trim() });
+
+    if (!user) return handleError(res, 404, "User not found");
+    if (!user.isVerified) return handleError(res, 403, "Please verify your email first");
+    if (user.password) return handleError(res, 400, "User already completed registration");
+
+    user.firstName = firstName;
+    user.nickname = nickname;
+    user.password = password;
+    await user.save();
+
+    res.status(200).json({
+      message: "Registration completed successfully",
+      nicknameSet: true,
+    });
+  } catch (error) {
+    console.error("Complete registration error:", error);
+    handleError(res, 500, "Internal server error");
+  }
+};
+
 
 //Logout 
 exports.logout = async (req, res) => {
